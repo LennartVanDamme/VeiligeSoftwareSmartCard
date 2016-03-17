@@ -67,10 +67,10 @@ public class mainCert {
 			(byte) 0x91, (byte) 0x9d, (byte) 0xe1, (byte) 0xf8, (byte) 0x01, (byte) 0x62, 
 			(byte) 0xf1, (byte) 0xce, (byte) 0x44, (byte) 0x60, (byte) 0x84, (byte) 0x03, 
 			(byte) 0x68, (byte) 0x0c, (byte) 0x6e, (byte) 0x37, (byte) 0x11, (byte) 0xc4, 
-			(byte) 0x6e, (byte) 0x37, (byte) 0x79, (byte) 0x06, 
-
-		
+			(byte) 0x6e, (byte) 0x37, (byte) 0x79, (byte) 0x06
 		};
+	
+	public static byte[] certificateLCP = new byte[]{
 	
 	public static void main(String[] args) throws IOException, ClassNotFoundException{
 		Certificate cardCert = new Certificate( (short)0,"Colruyt", publicKeyColruyt);
