@@ -16,8 +16,17 @@ public class ECJavaPublicKeyGen {
 		Security.addProvider(new BouncyCastleProvider());
 		
 		KeyPair kp = ECJavaPublicKeyGen.generateECCKeyPair();
-		ECJavaPublicKeyGen.printSecret((ECPrivateKey) kp.getPrivate());
-		ECJavaPublicKeyGen.printSecret((ECPublicKey) kp.getPublic());
+		
+		ECPrivateKey pKey = (ECPrivateKey)kp.getPrivate();
+		System.out.println("private key");
+		print("" + new BigInteger(1, pKey.getD().toByteArray()).toString(16));
+		
+		System.out.println();
+		System.out.println("public key");
+		ECPublicKey publickey = (ECPublicKey) kp.getPublic();
+		print("" + new BigInteger(1, publickey.getQ().getEncoded()).toString(16));
+		//ECJavaPublicKeyGen.printSecret((ECPublicKey) kp.getPublic());
+		
 	}
 	
 	public static KeyPair generateECCKeyPair() throws NoSuchProviderException{
@@ -39,5 +48,18 @@ public class ECJavaPublicKeyGen {
 	
 	public static void printSecret(ECPublicKey key){
 		System.out.println("W: "+ new BigInteger(1, key.getQ().getEncoded()).toString(16));
+	}
+	
+	public static void print(String byteText){
+		for(int i = 0; i < byteText.length(); i++){
+			System.out.print("(byte) 0x" + byteText.charAt(i));
+			if(i!=byteText.length()-1){
+				i++;
+				System.out.print(byteText.charAt(i));
+			}
+			
+			if(i!=byteText.length()-1)System.out.print(", ");
+		}
+		System.out.println();
 	}
 }
