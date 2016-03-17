@@ -7,8 +7,6 @@ import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.Arrays;
 
-import org.bouncycastle.mail.smime.handlers.pkcs7_mime;
-
 public class Certificate implements Serializable {
 	private short id;
 	private String name;
@@ -39,7 +37,29 @@ public class Certificate implements Serializable {
 	public String toString() {
 		return "Certificate [id=" + id + ", name=" + name + ", publicKey=" + Arrays.toString(publicKey) + "]";
 	}
-	
-	
 
+	public short getId() {
+		return id;
+	}
+
+	public void setId(short id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public byte[] getPublicKey() {
+		return publicKey;
+	}
+
+	public void setPublicKey(byte[] publicKey) {
+		this.publicKey = publicKey;
+	}
+	
 }
