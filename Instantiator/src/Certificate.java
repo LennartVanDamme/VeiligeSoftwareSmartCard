@@ -7,8 +7,6 @@ import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.Arrays;
 
-import org.bouncycastle.mail.smime.handlers.pkcs7_mime;
-
 public class Certificate implements Serializable {
 	private short id;
 	private String name;
